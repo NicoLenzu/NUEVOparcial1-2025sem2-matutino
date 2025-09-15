@@ -13,7 +13,7 @@
  */
 
 // Importamos los datos desde el archivo JSON usando ES6 import
-import bibliotecaData from './datos_biblioteca.json' assert { type: 'json' };
+import bibliotecaData from './datos_biblioteca.json' with { type: 'json' };
 
 // Creamos una copia de los datos para trabajar con ellos
 const biblioteca = { ...bibliotecaData };
@@ -33,8 +33,41 @@ const biblioteca = { ...bibliotecaData };
  * @param {string} fechaPrestamo - Fecha del préstamo (formato YYYY-MM-DD)
  * @return {boolean|string} - true si se realizó el préstamo, mensaje de error si no
  */
+for (const libro of biblioteca.libros) {
+    console.log(libro);
+    
+    
+  }
 function prestarLibro(idLibro, idEstudiante, fechaPrestamo) {
-  // Tu código aquí
+  //Suponiendo que el id del libro se genera al agregar uno
+  if (idLibro >= biblioteca.libros.length) {
+    return "Id del libro no esxiste"
+  }
+  if (idEstudiante >= biblioteca.estudiantes.length) {
+    return "Estudiante no existe"
+  }
+
+  for (const libro of biblioteca.libros) {
+    if (idLibro === libro.id) {
+      if (!libro.disponible) {
+        return "El libro ya esta en prestamo"
+      }
+      else{
+        const nombreEstudiante = biblioteca.estudiantes[idEstudiante-1]
+
+        libro.disponible = false;
+        libro.prestamos.push(
+          {
+            "estudiante": nombreEstudiante,
+            "fechaPrestamo" : fechaPrestamo,
+             "fechaDevolucion": null
+          }
+        )
+      }
+    }
+  }
+
+
 }
 
 
@@ -47,11 +80,25 @@ function prestarLibro(idLibro, idEstudiante, fechaPrestamo) {
  * @param {object} criterios - Objeto con los criterios de búsqueda
  * @return {array} - Array con los libros que cumplen los criterios
  */
-function buscarLibros(criterios) {
-  // Tu código aquí
-  // Ejemplo de criterios: {titulo: "javascript", disponible: true}
-}
 
+
+function buscarLibros(criterios) {
+  const libros = []
+  
+  
+  for (const libro of biblioteca.libros) {
+    for (const criterio of criterios.values()) {
+      console.log(criterio);
+      
+      if (!libro[criterio] === criterios.criterio) {
+        break
+      }else{
+        continue
+      }
+
+    }
+  }
+}
 
 // ALGUNOS CASOS DE PRUEBA
 // Descomentar para probar tu implementación

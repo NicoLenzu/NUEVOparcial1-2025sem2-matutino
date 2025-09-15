@@ -4,3 +4,86 @@
   font-weight: 700;
   font-style: normal;
 }
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Rufina';
+}
+.container{
+  width: 500px;
+}
+header{
+  background-color: gold;
+  color: rgb(185, 4, 4);
+  display: flex;  
+  height: 250px;
+  align-items: center;
+
+}
+
+.header-left, .header-right{
+  width: 50%;
+  position: relative;
+}
+.header-left{
+  padding-left: 40px;
+}
+#header-p{
+  font-size: smaller;
+}
+#pollosHermanos{
+  width: 200px;
+  position: absolute;
+  top: -125px;
+  right: 0px;
+}
+
+.titulos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.titulo{
+  margin-bottom: -10px;
+}
+section{
+  display: flex;
+  padding: 0 30px ;
+  
+}
+.izq, .der{
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+}
+.izq{
+  align-items: center;
+}
+.descripcion, .precio, .nombre-comida{
+  margin: 0 0;
+}
+.nombre-comida{
+  font-size: large;
+  font-weight: 400;
+}
+.precio{
+  border-bottom: 1px dotted black;
+  align-items: right  ;
+  justify-self: right;
+  margin-top: 10px;
+  text-align: end;
+}
+.descripcion{
+  font-size: x-small;
+}
+
+.foto{
+  width: 90%;
+}
+
+

@@ -2,16 +2,19 @@
 <html>
   <head>
     <title>Ejercicio 4</title>
+    <script src="scriptEj4.js" defer></script>
   </head>
   <body>
-    <input name="name" placeholder="Name" required />
-    <input name="email" placeholder="Email" required />
-    <select name="role">
-      <option>Admin</option>
-      <option>Editor</option>
-      <option>Viewer</option>
-    </select>
-    <button id="add">Add</button>
+    <form >
+      <input name="name" placeholder="Name" id="name" required />
+      <input name="email" type="email" placeholder="Email" id="email" required />
+      <select name="role" id="role">
+        <option>Admin</option>
+        <option>Editor</option>
+        <option>Viewer</option>
+      </select>
+      <button id="add" type="submit">Add</button>
+    </form>
 
     <ul id="users"></ul>
   </body>
